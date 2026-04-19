@@ -1,9 +1,9 @@
 {
 	"required": true,
-	"package": "com.example.client.mixin",
+	"package": "com.liamfer.shibawarrior.client.mixin",
 	"compatibilityLevel": "JAVA_17",
 	"client": [
-		"ExampleClientMixin"
+		"ShibaWarriorClientMixin"
 	],
 	"injectors": {
 		"defaultRequire": 1
