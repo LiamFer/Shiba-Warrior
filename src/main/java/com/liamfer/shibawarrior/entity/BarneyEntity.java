@@ -206,4 +206,18 @@ public class BarneyEntity extends TamableAnimal {
             }
         }
     }
+
+    @Override
+    protected void dropAllDeathLoot(net.minecraft.world.damagesource.DamageSource source) {
+        // Dropar todos os itens do inventário do Barney (armaduras, armas e mochila)
+        for (int i = 0; i < this.inventory.getContainerSize(); i++) {
+            ItemStack stack = this.inventory.getItem(i);
+            if (!stack.isEmpty()) {
+                this.spawnAtLocation(stack);
+                this.inventory.setItem(i, ItemStack.EMPTY);
+            }
+        }
+        // Chama o super para dropar xp e itens normais de entidade
+        super.dropAllDeathLoot(source);
+    }
 }
