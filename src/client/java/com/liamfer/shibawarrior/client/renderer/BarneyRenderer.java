@@ -4,6 +4,7 @@ import com.liamfer.shibawarrior.client.model.BarneyModel;
 import com.liamfer.shibawarrior.entity.BarneyEntity;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.MobRenderer;
+import net.minecraft.client.renderer.entity.layers.ItemInHandLayer;
 import net.minecraft.resources.ResourceLocation;
 
 public class BarneyRenderer extends MobRenderer<BarneyEntity, BarneyModel<BarneyEntity>> {
@@ -11,6 +12,7 @@ public class BarneyRenderer extends MobRenderer<BarneyEntity, BarneyModel<Barney
 
     public BarneyRenderer(EntityRendererProvider.Context context) {
         super(context, new BarneyModel<>(context.bakeLayer(BarneyModel.LAYER_LOCATION)), 0.5f);
+        this.addLayer(new ItemInHandLayer<>(this, context.getItemInHandRenderer()));
     }
 
     @Override

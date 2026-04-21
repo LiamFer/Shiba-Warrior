@@ -1,16 +1,19 @@
 package com.liamfer.shibawarrior;
 
 import com.liamfer.shibawarrior.entity.BarneyEntity;
+import com.liamfer.shibawarrior.inventory.BarneyMenu;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricEntityTypeBuilder;
+import net.fabricmc.fabric.api.screenhandler.v1.ExtendedScreenHandlerType;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.EntityDimensions;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
+import net.minecraft.world.inventory.MenuType;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.SpawnEggItem;
@@ -27,6 +30,12 @@ public class ShibaWarriorMod implements ModInitializer {
 			FabricEntityTypeBuilder.create(MobCategory.CREATURE, BarneyEntity::new)
 					.dimensions(EntityDimensions.fixed(0.75f, 1.5f))
 					.build()
+	);
+
+	public static final MenuType<BarneyMenu> BARNEY_MENU = Registry.register(
+			BuiltInRegistries.MENU,
+			new ResourceLocation(MOD_ID, "barney_menu"),
+			new ExtendedScreenHandlerType<>(BarneyMenu::new)
 	);
 
 	public static final Item BARNEY_SPAWN_EGG = Registry.register(
