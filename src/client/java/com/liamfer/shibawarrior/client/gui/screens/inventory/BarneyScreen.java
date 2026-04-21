@@ -25,10 +25,9 @@ public class BarneyScreen extends AbstractContainerScreen<BarneyMenu> {
     @Override
     protected void init() {
         super.init();
-        this.titleLabelX = 97;
-        this.titleLabelY = -2;
-        this.inventoryLabelX = 8;
-        this.inventoryLabelY = 73;
+        // Esconder todos os textos padrão
+        this.titleLabelX = 9999;
+        this.inventoryLabelX = 9999;
     }
 
     @Override
@@ -48,11 +47,6 @@ public class BarneyScreen extends AbstractContainerScreen<BarneyMenu> {
         // ── Fundo cinza do painel ────────────────────────────────────────────
         // Painel principal
         drawPanel(g, x, y, 176, 166);
-
-        // ── Labels ──────────────────────────────────────────────────────────
-        g.drawString(font, "Equipamento", x + 7, y + -10, 0x404040, false);
-        g.drawString(font, "Mochila",     x + 116, y + -2, 0x404040, false);
-        g.drawString(font, "Inventário",  x + 8,   y + 73, 0x404040, false);
 
         // ── Armaduras (slots 0-3) ────────────────────────────────────────────
         for (int i = 0; i < 4; i++)
